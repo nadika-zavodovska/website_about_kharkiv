@@ -300,7 +300,7 @@ button {
 #resources {
   background-image: url(./images/bg-pattern.png);
   background-attachment: fixed;
-  background-position: bottom;
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   margin: 0;

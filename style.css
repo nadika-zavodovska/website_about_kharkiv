@@ -102,7 +102,7 @@ button {
   height: 80vh;
 }
 
-.box {
+.box-menu {
   width: 350px;
   text-align: end;
   display: none;
@@ -343,7 +343,7 @@ footer a {
   #menu {
     display: none;
   }
-  .box {
+  .box-menu {
     display: block;
   }
 }

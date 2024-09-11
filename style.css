@@ -1,3 +1,5 @@
+/* #region General tags section */
+
 body {
   margin: 0;
   font-family: "Playpen Sans", cursive;
@@ -7,6 +9,23 @@ a {
 }
 a:active {
   color: #f6ce01;
+}
+a:focus,
+button:focus {
+  outline: 0.5px solid #f6ce01;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+h1 {
+  color: #fff;
+  font-size: 56px;
+}
+button {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
 }
 .text_center {
   text-align: center;
@@ -21,7 +40,25 @@ a:active {
 .gray_bg {
   background-color: #eeeeee;
 }
+.text_blur_shadow {
+  text-shadow: 0 0 4px #000;
+}
+.hidden {
+  opacity: 0;
+  transition: all 1.3s;
+  filter: blur(0.7px);
+  transform: translateX(-100%);
+}
 
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+/* #endregion General tags section */
+
+/* #region Header section */
 #header {
   background-image: url("./images/kharkiv_bg_photo.jpg");
   background-size: cover;
@@ -47,9 +84,6 @@ a:active {
   justify-content: end;
   gap: 50px;
 }
-.text_blur_shadow {
-  text-shadow: 0 0 4px #000;
-}
 
 .menu_item {
   list-style: none;
@@ -67,137 +101,24 @@ a:active {
   align-items: center;
   height: 80vh;
 }
-h1 {
-  color: #fff;
-  font-size: 56px;
-}
-
-#about {
-  padding: 10px 30px;
-}
-.about_title {
-  display: inline;
-  border-bottom: 3px solid rgb(0, 147, 233);
-  margin: 0 auto;
-}
-.about_text {
-  margin: 20px;
-  line-height: 2;
-}
-.parallax_block {
-  background-image: url("./images/night_kharkiv.jpg");
-  height: 300px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-}
-.parallax_block_facts {
-  background-image: url("./images/night_kharkiv_lights.jpg");
-}
-.parallax_block_stadium {
-  background-image: url("./images/night_kharkiv_bg.jpg");
-  background-position: top;
-}
-.parallax_title {
-  color: #fff;
-  font-size: 34px;
-}
-.kharkiv_vector {
-  width: 30%;
-}
-.image-text_item-header {
-  padding: 0 14px 0;
-  margin-top: 0;
-}
-.grid_block {
-  display: flex;
-  flex-wrap: wrap;
-}
-.grid_block__text {
-  text-align: justify;
-}
-.grid_block__item {
-  width: 30%;
-  margin: 20px;
-}
-.grid_block__img {
-  width: 100%;
-}
-.image-text_item {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 40px 30px;
-}
-.image-text_item-img {
-  width: 30%;
-}
-.image-text_block_separator {
-  width: 70%;
-}
-.resources-block {
-  font-display: a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.resources-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  line-height: 2;
-
-  li {
-    position: relative;
-    top: 2px;
-    padding-left: 1rem;
-    text-indent: -0.7rem;
-    padding-bottom: 10px;
-  }
-
-  li::before {
-    content: "👉 ";
-  }
-}
-footer {
-  background-color: #043d7b;
-  color: #f6ce01;
-  text-align: center;
-  padding: 20px;
-}
-footer a {
-  color: #fff;
-}
-
-/* menu */
-
-button {
-  background-color: transparent;
-  padding: 0;
-  border: 0;
-  cursor: pointer;
-}
 
 .box {
   width: 350px;
-  text-align: center;
+  text-align: end;
+  display: none;
 }
 .menu__link:hover {
   background-color: #f6ce01;
   color: #000;
 }
 .button {
-  /* background-color: olive; */
-  text-transform: uppercase;
-  padding: 0.5lh 1.5lh;
-  inline-size: 100%;
+  padding: 12.5px 21px;
   position: relative;
+  display: inline;
+}
+.button.active ~ .menu {
+  line-height: 1.2;
+  color: #fff;
 }
 
 .menu {
@@ -224,9 +145,7 @@ button {
   margin-bottom: 5px;
   border-radius: 4px;
 }
-.menu__link {
-  color: #f6ce01;
-}
+
 .menu__item {
   overflow: hidden;
   list-style: none;
@@ -234,27 +153,74 @@ button {
 .menu__link {
   display: block;
   padding: 0.5lh;
+  color: #f6ce01;
+  text-align: center;
 }
 
-.button.active ~ .menu {
-  line-height: 1.2;
+/* #endregion Header section */
+
+/* #region About section */
+#about {
+  padding: 10px 30px;
+}
+.about_title {
+  display: inline;
+  border-bottom: 3px solid rgb(0, 147, 233);
+  margin: 0 auto;
+}
+.about_text {
+  margin: 20px;
+  line-height: 2;
+}
+
+.kharkiv_vector {
+  width: 30%;
+}
+/* #endregion About section */
+
+/* #region Parallax sections */
+.parallax_title {
   color: #fff;
+  font-size: 34px;
 }
-.box {
-  display: none;
+.parallax_block {
+  background-image: url("./images/night_kharkiv.jpg");
+  height: 300px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 }
 
-.resources-item a {
-  color: #181818;
-  text-shadow: 0 0 1px #000;
-  padding: 6px;
-    box-shadow: inset 0 0 0 0 #00000000;
-    transition: color 0.3s ease-in-out, box-shadow 0.5s ease-in-out;
-    border-radius: 4px;
+.parallax_block_facts {
+  background-image: url("./images/night_kharkiv_lights.jpg");
 }
-.resources-item a:hover{
-  color: #111111;
-    box-shadow: inset 100vw 0 0 0 #f6ce01;
+
+.parallax_block_stadium {
+  background-image: url("./images/night_kharkiv_bg.jpg");
+  background-position: top;
+}
+
+/* #endregion Parallax sections */
+/* #region Places section */
+.grid_block {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid_block__text {
+  text-align: justify;
+}
+.grid_block__item {
+  width: 30%;
+  margin: 20px;
+}
+.grid_block__img {
+  width: 100%;
 }
 .grid_block__img,
 .image-text_item-img {
@@ -271,6 +237,63 @@ button {
   -webkit-transform: scale(1.09);
   transform: scale(1.09);
 }
+/* #endregion Places section */
+/* #region Facts section */
+
+.image-text_item-header {
+  padding: 0 14px 0;
+  margin-top: 0;
+}
+
+.image-text_item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 40px 30px;
+}
+.image-text_item-img {
+  width: 30%;
+}
+
+/* #endregion Facts section */
+/* #region Resouces section */
+.resources-block {
+  font-display: a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.resources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 2;
+
+  li {
+    position: relative;
+    top: 2px;
+    padding-left: 1rem;
+    text-indent: -0.7rem;
+    padding-bottom: 10px;
+  }
+
+  li::before {
+    content: "👉 ";
+  }
+}
+
+.resources-item a {
+  color: #181818;
+  text-shadow: 0 0 1px #000;
+  padding: 6px;
+  box-shadow: inset 0 0 0 0 #00000000;
+  transition: color 0.3s ease-in-out, box-shadow 0.5s ease-in-out;
+  border-radius: 4px;
+}
+.resources-item a:hover {
+  color: #111111;
+  box-shadow: inset 100vw 0 0 0 #f6ce01;
+}
 
 #resources {
   background-image: url(./images/bg-pattern.png);
@@ -281,19 +304,28 @@ button {
   margin: 0;
   padding: 40px 10px;
 }
+/* #endregion Resouces section */
 
-.hidden {
-  opacity: 0;
-  transition: all 1.3s;
-  filter: blur(0.7px);
-  transform: translateX(-100%);
+/* #region Footer section */
+footer {
+  background-color: #043d7b;
+  color: #f6ce01;
+  text-align: center;
+  padding: 30px 10px;
+}
+footer a {
+  color: #fff;
+}
+.contact_author {
+  margin-bottom: 7px;
 }
 
-.show {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateX(0);
+.copyright_link:hover {
+  text-shadow: 0 0 1px #f6ce01;
 }
+/* #endregion Footer section */
+
+/* #region Media queries */
 
 @media only screen and (max-width: 1355px) {
   .grid_block__item {
@@ -341,3 +373,4 @@ button {
     padding: 0;
   }
 }
+/* #endregion Media queries */

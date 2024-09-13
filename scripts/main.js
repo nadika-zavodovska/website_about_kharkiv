@@ -28,3 +28,28 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el));
+
+function fetchWeather() {
+  const city = "Kharkiv";
+  const APIKey = "cbf07be48bf5aa4c8a899dbaceb6d097";
+
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      const weatherBox = document.querySelector(".weather-box");
+      weatherBox.innerHTML = `<span>It is</span> ${Math.round(
+        data.main.temp
+      )}<span>°C in Kharkiv</span>`;
+    });
+}
+
+window.onload = function () {
+  fetchWeather();
+};
+
+setInterval(function () {
+  fetchWeather();
+}, 300000);

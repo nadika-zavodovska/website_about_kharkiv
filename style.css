@@ -57,10 +57,23 @@ button {
   filter: blur(0);
   transform: translateX(0);
 }
+.weather-box{ 
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #cecece;
+  color: #000;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+}
 
 /* #endregion General tags section */
 
 /* #region Header section */
+#wrapper{
+  position: relative;
+}
 #header {
   background-image: url("./images/kharkiv_bg_photo.jpg");
   background-size: cover;
@@ -376,3 +389,5 @@ footer a {
   }
 }
 /* #endregion Media queries */
+
+

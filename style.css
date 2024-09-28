@@ -418,5 +418,10 @@ footer a {
     font-size: 1.1rem;
   }
 }
+@media only screen and (max-width: 568px) {
+  .menu__link{
+    font-size: 1.5rem;
+  }
+}
 /* #endregion Media queries */
 

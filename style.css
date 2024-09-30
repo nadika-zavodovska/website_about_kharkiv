@@ -71,6 +71,11 @@ button {
   background-color: #cecece;
   border-radius: 15px;
 }
+#weather_icon{
+  position: relative;
+  top: 10px;
+  width: 14%;
+}
 
 /* #endregion Weather block */
 

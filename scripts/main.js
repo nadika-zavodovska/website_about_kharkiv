@@ -39,10 +39,10 @@ function fetchWeather() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      const weatherBox = document.querySelector(".weather-box");
-      weatherBox.innerHTML = `<span>It is</span> ${Math.round(
-        data.main.temp
-      )}<span>°C in Kharkiv</span>`;
+      const weatherTemperature = document.querySelector("#weather_temperature");
+      const weatherIcon = document.querySelector("#weather_icon");
+      weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+      weatherTemperature.innerHTML = `${Math.round(data.main.temp)}`;
     });
 }
 

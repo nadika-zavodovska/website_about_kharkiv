@@ -67,7 +67,7 @@ button {
   bottom: 10px;
   max-width: 189px;
   z-index: 2;
-  padding: 10px;
+  padding: 2px 10px 10px;
   color: #000;
   background-color: #cecece;
   border-radius: 15px;
